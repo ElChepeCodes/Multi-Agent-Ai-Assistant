@@ -1,0 +1,91 @@
+# Standard Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env/
+.venv/
+
+# Local Models & Data
+models/              # Exclude all local models (GGUF, .ppn, etc.)
+!models/README.md    # Keep a README if needed
+chromadb/            # Local vector DB data
+*.gguf
+*.bin
+*.safetensors
+*.h5
+*.pt
+*.pth
+
+# API Keys & Sensitive Data
+.env
+.env.local
+.env.*.local
+secrets.yml
+credentials.json
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+logs/
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE Specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+*.code-workspace
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Audio files from TTS
+response.mp3
+*.wav
+*.mp3
+
+# Whisper cache
+.cache/whisper/
+
+# MLFlow/Experiment Tracking
+mlruns/
+
+# DVC config (if used)
+.dvc/

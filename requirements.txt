@@ -1,0 +1,12 @@
+# Voice Recognition
+openai-whisper==20231117  # Speech-to-text
+sounddevice==0.4.6         # Audio recording
+numpy==1.26.0              # Audio processing
+gTTS==2.4.0                # Text-to-speech (online)
+pvporcupine==3.0.0         # Wake word detection
+pyaudio==0.2.14            # Audio I/O (may need extra setup)
+llama-cpp-python==0.2.72   # For DeepSeek (GGUF models)
+langchain==0.2.0           # Agent orchestration
+fastapi==0.111.0           # API server
+uvicorn==0.30.0            # ASGI server
+python-dotenv==1.0.1       # For environment variables
