@@ -5,13 +5,16 @@ from .wake_word import WakeWordDetector
 
 class VoiceAgent:
     def __init__(self):
-        print("🔊 Loading voice agent...")
+        # print("🔊 Loading voice agent...")
         self.stt_model = whisper.load_model("base")
-        print("🔊 Loaded STT model.")
+        # print("🔊 Loaded STT model.")
         self.wake_word_detector = WakeWordDetector(
             keyword_path="models/wake_word.ppn"  # <-- Explicit path
         )
-        print("🔊 Loaded wake word detector.")
+        print('Loading DeepSeekClient...')
+        self.llm = DeepSeekClient()
+        print('DeepSeekClient loaded.')
+        # print("🔊 Loaded wake word detector.")
         self.sample_rate = 16000
         
     def record_command(self, duration=5):
@@ -25,6 +28,11 @@ class VoiceAgent:
         )
         sd.wait()
         return audio.flatten().astype(np.float32) / 32768.0
+
+    def process_command(self, text):
+        response = self.llm.generate(text)
+        print(f"AI: {response}")
+        self.tts.speak(response)
     
     def transcribe(self, audio):
         """Convert speech to text"""
@@ -37,7 +45,6 @@ class VoiceAgent:
         try:
             while True:
                 # Wait for wake word
-                print("👂 Listening for wake word...")
                 self.wake_word_detector.listen_for_wake_word()
                 print("🛌 Wake word detected!")
                 # Record and transcribe
