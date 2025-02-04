@@ -13,8 +13,8 @@ until curl -s http://localhost:11434/api/tags > /dev/null; do
   sleep 2
 done
 
-echo "Pulling the model if not already available..."
-ollama pull deepseek-r1:1.5b
+echo "Pulling the model: $MODEL_NAME"
+ollama pull $MODEL_NAME
 
-echo "Ollama server is running with the model deepseek-r1:1.5b!"
-tail -f /dev/null  # Keep the container running
+echo "Ollama server is running with the model $MODEL_NAME!"
+tail -f /dev/null

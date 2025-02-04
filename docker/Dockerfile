@@ -1,5 +1,11 @@
 FROM ollama/ollama
 
+# Declare an ARG variable
+ARG MODEL_NAME
+
+# Set it as an ENV variable inside the container
+ENV MODEL_NAME=${MODEL_NAME}
+
 # Install curl (required for API calls)
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 

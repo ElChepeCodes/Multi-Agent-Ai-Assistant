@@ -3,6 +3,11 @@ services:
     ollama:
         build:
             context: ./docker  # Adjust if your Dockerfile is inside a "docker" folder
+            dockerfile: Dockerfile
+            args:
+                MODEL_NAME: ${MODEL_NAME}
+        environment:
+        - MODEL_NAME=${MODEL_NAME}
         container_name: ollama
         restart: unless-stopped
         ports:
